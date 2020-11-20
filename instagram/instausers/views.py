@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import RegisterUserForm
 
 # Create your views here.
@@ -10,6 +10,7 @@ def index(request):
         form = RegisterUserForm(request.POST)
         if form.is_valid():
             form.save()
+        return redirect('index')
             
     context = {'form':form}
     return render(request, 'instausers/index.html', context)
