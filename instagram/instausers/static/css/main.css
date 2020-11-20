@@ -38,16 +38,34 @@ body {
   margin-right: auto;
   width: 80%;
 }
-.registration-form .form-group{
-    margin-bottom: 5px;
+.registration-form .form-group {
+  margin-bottom: 5px;
 }
-.registration-form input::placeholder{
+.registration-form input::placeholder {
   font-size: 13px;
 }
-.registration-form button{
-    margin-top: 0.5rem;
-    width: 100%;
-    height: 33px;
-    font-size: 13px;
-    border-radius: 5px;
+.registration-form button {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 33px;
+  font-size: 13px;
+  border-radius: 5px;
+  background-color: #0e93cd;
+  outline: none;
+  border: none;
+  color: white;
+}
+.registration-form .form-control {
+  outline: none !important;
+}
+.registration-form .data-policy{
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  color: rgba(64, 64, 64, 0.7);
+  font-weight: bolder;
+  font-size: 12px;
+  font-family: sans-serif;
 }
