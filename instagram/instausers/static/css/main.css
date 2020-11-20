@@ -3,7 +3,7 @@ body {
 }
 .registration-form {
   margin-top: 2.5rem;
-  width: 27%;
+  width: 28%;
   height: 100vh;
   border: 1px solid rgba(64, 64, 64, 0.2);
   background-color: rgba(255, 255, 255, 0.7);
@@ -26,8 +26,28 @@ body {
   margin-right: auto;
   width: 70%;
   text-align: center;
-  color:rgba(64, 64, 64, 0.7);
+  color: rgba(64, 64, 64, 0.7);
   font-weight: bolder;
   font-size: 17px;
   font-family: sans-serif;
+}
+.registration-form .form {
+  margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.registration-form .form-group{
+    margin-bottom: 5px;
+}
+.registration-form input::placeholder{
+  font-size: 13px;
+}
+.registration-form button{
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 33px;
+    font-size: 13px;
+    border-radius: 5px;
 }
