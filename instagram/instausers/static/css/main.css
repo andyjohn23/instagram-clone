@@ -86,7 +86,7 @@ body {
 .form {
   position: relative;
 }
-.form label {
+.form .label-email {
   position: absolute;
   top: 1px;
   bottom: 0px;
@@ -96,14 +96,77 @@ body {
   color: grey;
   pointer-events: none;
 }
-.content-name {
+.content-email {
   position: absolute;
   top: 10px;
   font-size: 13px;
   transition: all 0.3s ease;
 }
-.form input:focus + .label-name .content-name, 
-.form input:not(:placeholder-shown) + .label-name .content-name {
+.form input:focus + .label-email .content-email,
+.form input:not(:placeholder-shown) + .label-email .content-email {
+  transform: translateY(-70%);
+  font-size: 12px;
+}
+.form .label-username {
+  position: absolute;
+  top: 1px;
+  bottom: 0px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  color: grey;
+  pointer-events: none;
+}
+.content-username {
+  position: absolute;
+  top: 50px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.form input:focus + .label-username .content-username,
+.form input:not(:placeholder-shown) + .label-username .content-username {
+  transform: translateY(-70%);
+  font-size: 12px;
+}
+.form .label-password1 {
+  position: absolute;
+  top: 1px;
+  bottom: 0px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  color: grey;
+  pointer-events: none;
+}
+.content-password1 {
+  position: absolute;
+  top: 90px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.form input:focus + .label-password1 .content-password1,
+.form input:not(:placeholder-shown) + .label-password1 .content-password1 {
+  transform: translateY(-70%);
+  font-size: 12px;
+}
+.form .label-password2 {
+  position: absolute;
+  top: 1px;
+  bottom: 0px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  color: grey;
+  pointer-events: none;
+}
+.content-password2 {
+  position: absolute;
+  top: 130px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.form input:focus + .label-password2 .content-password2,
+.form input:not(:placeholder-shown) + .label-password2 .content-password2 {
   transform: translateY(-70%);
   font-size: 12px;
 }
