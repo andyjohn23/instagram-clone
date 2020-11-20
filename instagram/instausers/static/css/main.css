@@ -97,8 +97,8 @@ body {
   font-family: sans-serif;
   margin-bottom: 3rem;
 }
-.registration-form .forgot-password a:hover{
-    text-decoration: none;
+.registration-form .forgot-password a:hover {
+  text-decoration: none;
 }
 .form {
   position: relative;
@@ -269,4 +269,13 @@ body {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+.insta-mobile img {
+  width: 60vw;
+  height: 100vh;
+  object-fit: contain;
+}
+.front-page{
+    display: flex;
+    flex-direction: row;
 }
