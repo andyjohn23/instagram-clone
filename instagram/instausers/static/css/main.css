@@ -278,7 +278,8 @@ body {
   image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
-.front-page{
-    display: flex;
-    flex-direction: row;
+.front-page {
+  display: flex;
+  flex-direction: row;
 }
+
