@@ -29,14 +29,14 @@ class RegisterUserForm(UserCreationForm):
 
 class AuthenticationForm(forms.ModelForm):
     password = forms.CharField(label='password', widget=forms.PasswordInput)
-
+    
     class Meta:
         model = UserAccount
         fields = ('email', 'password')
-        
-    # def clean(self):
-    #     if self.is_valid():
-    #         email = self.cleaned_data['email']
-    #         password = self.cleaned_data['password']
-    #         if not authenticate(email=email, password=password):
-    #             raise forms.ValidationError('invalid login')
+
+    def clean(self):
+        if self.is_valid():
+            email = self.cleaned_data['email']
+            password = self.cleaned_data['password']
+            if not authenticate(email=email, password=password):
+                raise forms.ValidationError('invalid login')

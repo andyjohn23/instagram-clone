@@ -7,8 +7,31 @@ from .forms import RegisterUserForm, AuthenticationForm
 
 
 def index(request):
-    return render(request, 'instausers/index.html')
+    
+    context = {}
 
+    user = request.user
+    if user.is_authenticated:
+        return redirect('index')
+
+    destination = get_redirect_if_exists(request)
+    if request.POST:
+        form = AuthenticationForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email, password=password)
+            if user:
+                login(request, user)
+                destination = get_redirect_if_exists(request)
+                if destination:
+                    return redirect(destination)
+                return redirect('index')
+
+        else:
+            context['login_form'] = form
+
+    return render(request, 'instausers/index.html', context)
 
 def register(request, *arg, **kwargs):
     user = request.user
@@ -66,7 +89,6 @@ def login(request, *args, **kwargs):
             context['login_form'] = form
 
     return render(request, 'instausers/login.html', context)
-
 
 def get_redirect_if_exists(request):
     redirect = None
