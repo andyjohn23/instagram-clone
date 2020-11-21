@@ -20,7 +20,8 @@ from instausers import views as instausers_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', instausers_views.register, name='register'),
-    path('login/', instausers_views.login, name='login'),
-    path('logout/', instausers_views.logout, name='logout'),
+    path('login/', instausers_views.login_user, name='login'),
+    path('logout/', instausers_views.logout_user, name='logout'),
+    path('profile/', instausers_views.profile, name='profile'),
     path('', include('instausers.urls')),
 ]

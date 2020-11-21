@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate
+from django.contrib.auth import login,logout,authenticate
 from .forms import RegisterUserForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required(login_url='login')
+def profile(request):
+
+    return render(request, 'instausers/profile.html')
 
 def index(request):
-    
+
     context = {}
 
     user = request.user
     if user.is_authenticated:
-        return redirect('index')
+        return redirect('profile')
 
     destination = get_redirect_if_exists(request)
     if request.POST:
@@ -51,25 +56,25 @@ def register(request, *arg, **kwargs):
             destination = get_redirect_if_exists(request)
             if destination:
                 return redirect(destination)
-            return redirect('index')
+            return redirect('profile')
         else:
             context['register_form'] = form
 
     return render(request, 'instausers/register.html', context)
 
 
-def logout(request, *args, **kwargs):
+def logout_user(request, *args, **kwargs):
     logout(request)
     return redirect("index")
 
 
-def login(request, *args, **kwargs):
+def login_user(request, *args, **kwargs):
 
     context = {}
 
     user = request.user
     if user.is_authenticated:
-        return redirect('index')
+        return redirect('profile')
 
     destination = get_redirect_if_exists(request)
     if request.POST:
