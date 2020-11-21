@@ -15,8 +15,22 @@ class ManagerAccount(BaseUserManager):
         )
 
         user.set_password(password)
-        user.save(user=self._db)
+        user.save(using=self._db)
         return user
+
+    def create_superuser(self, email, username, password):
+        user = self.create_user(
+            email = self.normalize_email(email),
+            username = username,
+            password = password,
+        )
+
+        user.is_staff = True
+        user.is_admin = True
+        user.is_superuser = True
+        user.save(using=self._db)
+        return user
+
 
 class UserAccount(AbstractBaseUser):
     email = models.EmailField(verbose_name='email', max_length=70, unique=True)
@@ -30,6 +44,7 @@ class UserAccount(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+    objects = ManagerAccount()
 
     def __str__(self):
         return self.email
@@ -37,7 +52,7 @@ class UserAccount(AbstractBaseUser):
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
-    def has_module_perm(self, app_label):
+    def has_module_perms(self, app_label):
         return True
 
     

@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'instausers.UserAccount'
+
 WSGI_APPLICATION = 'instagram.wsgi.application'
 
 
