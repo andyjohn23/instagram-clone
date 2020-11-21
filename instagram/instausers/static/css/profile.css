@@ -1,0 +1,14 @@
+body {
+  background-color: rgba(224, 224, 224, 0.2);
+}
+.navbar{
+    background-color: white;
+}
+.navbar-brand{
+    margin-left: 10rem;
+}
+.navbar-brand img{
+    width: 100px;
+    height: 30px;
+    object-fit: contain;
+}
