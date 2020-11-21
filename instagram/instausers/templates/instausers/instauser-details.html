@@ -2,6 +2,32 @@
 
 {% block content %}
 
-<h1>{{ user.username }}</h1>
+<div class="container user-content">
+
+    <div class="user-avatar">
+        <img src="/static/images/default-avatar.jpg" alt="profile-photo">
+    </div>
+    <div class="user-info">
+        <p class="user-name">{{user.username}}&nbsp;&nbsp;
+            <a href="" class="btn btn-default button">Edit Profile</a>
+            <a href=""><i class="fa fa-cog" aria-hidden="true"></i></a>
+        </p>
+
+        <div class="user-extra">
+
+            <p>
+                <span>0</span>&nbsp;posts
+            </p>
+
+            <p>
+                <span>0</span>&nbsp;followers
+            </p>
+
+            <p>
+                <span>0</span>&nbsp;following
+            </p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
