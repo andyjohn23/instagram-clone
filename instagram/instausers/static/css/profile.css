@@ -30,37 +30,37 @@ body {
   background-position: 10px 5.5px;
   background-color: rgba(224, 224, 224, 0.2);
 }
-.search-form input::placeholder{
+.search-form input::placeholder {
   font-size: 15px;
 }
-.main-nav i{
+.main-nav i {
   font-size: 23px;
   color: rgba(0, 0, 0, 0.7);
 }
-.navbar ul{
-  font-family: 'Times New Roman', Times, serif;
+.navbar ul {
+  font-family: "Times New Roman", Times, serif;
   color: #202020;
 }
-.navbar .main-nav{
+.navbar .main-nav {
   gap: 10px;
   margin-right: 10rem;
 }
 .dropdown-toggle::after {
-  display:none;
+  display: none;
 }
-.dropdown img{
+.dropdown img {
   width: 25px;
   height: 25px;
   object-fit: contain;
   border-radius: 50%;
   border: 1px solid rgba(64, 64, 64, 0.3);
 }
-.dropdown-menu{
+.dropdown-menu {
   width: 220px;
   height: 200px;
-  border: 0.5px solid rgba(255,255,255,0.9);
+  border: 0.5px solid rgba(255, 255, 255, 0.9);
   outline: none;
-  box-shadow: 2px 2px 2px -2px rgba(0,0,0,0.9);
+  box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.9);
   border-radius: 4px;
 }
 .dropdown-menu-arrow {
@@ -69,6 +69,12 @@ body {
   width: 0;
   height: 0;
   position: relative;
+}
+.dropdown-menu i {
+  font-size: 17px;
+}
+.dropdown-menu a {
+  font-size: 16px;
 }
 .dropdown-menu-arrow:before,
 .dropdown-menu-arrow:after {
@@ -90,5 +96,5 @@ body {
 .dropdown-menu-arrow:before {
   bottom: -17px;
   right: -8px;
-  border-bottom-color: rgba(0,0,0,.15);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
