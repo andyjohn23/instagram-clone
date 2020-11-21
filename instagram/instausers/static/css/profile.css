@@ -27,9 +27,24 @@ body {
 }
 .search-form input:focus {
   padding-left: 30px;
-  background-position: 10px 6px;
+  background-position: 10px 5.5px;
   background-color: rgba(224, 224, 224, 0.2);
 }
 .search-form input::placeholder{
   font-size: 15px;
+}
+.dropdown-toggle::after {
+  display:none;
+}
+.main-nav i{
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.navbar ul{
+  font-family: 'Times New Roman', Times, serif;
+  color: #202020;
+}
+.navbar .main-nav{
+  gap: 10px;
+  margin-right: 6rem;
 }
