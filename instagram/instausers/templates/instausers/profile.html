@@ -2,6 +2,24 @@
 
 {% block content %}
 
-<h1>hello</h1>
+<div class="container profile-section">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>hello</h1>
+        </div>
+
+        <div class="col-md-6 affix">
+            <div class="row">
+                <div class="col-md-2 profile-photo">
+                    <img src="/static/images/default-avatar.jpg" alt="profile-photo">
+                </div>
+
+                <div class="col-md-3 profile-name">
+                    <a href="{% url 'user-details'%}" >{{ user.username }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -6,11 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-@login_required(login_url='login')
-def profile(request):
-
-    return render(request, 'instausers/profile.html')
-
 def index(request):
 
     context = {}
@@ -102,3 +97,14 @@ def get_redirect_if_exists(request):
             redirect = str(request.GET.get('next'))
 
     return redirect
+
+
+@login_required(login_url='login')
+def profile(request):
+
+    return render(request, 'instausers/profile.html')
+
+@login_required(login_url='login')
+def user_details(request):
+
+    return render(request, 'instausers/instauser-details.html')

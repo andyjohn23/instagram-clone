@@ -23,5 +23,6 @@ urlpatterns = [
     path('login/', instausers_views.login_user, name='login'),
     path('logout/', instausers_views.logout_user, name='logout'),
     path('profile/', instausers_views.profile, name='profile'),
+    path('userdetails/', instausers_views.user_details, name='user-details'),
     path('', include('instausers.urls')),
 ]
