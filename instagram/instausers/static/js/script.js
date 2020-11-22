@@ -19,3 +19,9 @@ toValidate.keyup(function () {
         $('input[type=submit]').prop('disabled', true);
     }
 });
+
+$(function () {
+    $('#profile-image').on('click', function () {
+        $('#profile-image-upload').click();
+    });
+});

@@ -4,9 +4,12 @@
 
 <div class="container user-content">
 
-    <div class="user-avatar">
-        <img src="/static/images/default-avatar.jpg" alt="profile-photo">
-    </div>
+    <form method="POST" enctype="multipart/form-data">
+        <input id="profile-image-upload" class="hidden" type="file" style="display: none;">
+        <div class="user-avatar" id="profile-image">
+            <img src="{{ user.profile.image.url }}" alt="profile-photo">
+        </div>
+    </form>
     <div class="user-info">
         <p class="user-name">{{user.username}}&nbsp;&nbsp;
             <a href="" class="btn  button">Edit Profile</a>
@@ -20,11 +23,11 @@
             </p>
 
             <p>
-                <span>0</span>&nbsp;followers
+                <a href=""><span>0</span>&nbsp;followers</a>
             </p>
 
             <p>
-                <span>0</span>&nbsp;following
+                <a href=""><span>0</span>&nbsp;following</a>
             </p>
         </div>
     </div>
