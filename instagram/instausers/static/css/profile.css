@@ -2,7 +2,7 @@ body {
   background-color: rgba(224, 224, 224, 0.2);
 }
 .navbar {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgba(64, 64, 64, 0.3);
   width: 100vw;
 }
@@ -129,6 +129,29 @@ body {
   text-decoration: none;
   color: black;
 }
+.profile-photo-section{
+  position: fixed;
+  margin-left: 30rem;
+}
+.suggestions-for-you{
+  margin-top: 3rem;
+  margin-left: -5.8rem;
+}
+.suggestions-for-you h1{
+  font-size: 15px;
+  font-weight: bold;
+  color: grey;
+}
+.suggestions-for-you a{
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: -1.7rem;
+  margin-left: -3rem;
+}
+.card{
+  height: 100vh;
+}
 .user-content{
   display: flex;
   flex-direction: row;
@@ -159,7 +182,7 @@ body {
   gap: 20px;
 }
 .user-info .button{
-  outline: none;
+  outline: none !important;
   border: 1px solid rgba(64, 64, 64, 0.3);
   border-radius: 4px;
   font-size: 14px;

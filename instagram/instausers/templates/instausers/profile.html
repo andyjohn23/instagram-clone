@@ -8,14 +8,19 @@
             <h1>hello</h1>
         </div>
 
-        <div class="col-md-6 affix">
+        <div class="col-md-6 profile-photo-section">
             <div class="row">
                 <div class="col-md-2 profile-photo">
                     <img src="/static/images/default-avatar.jpg" alt="profile-photo">
                 </div>
 
-                <div class="col-md-3 profile-name">
-                    <a href="{% url 'user-details'%}" >{{ user.username }}</a>
+                <div class=" container col-md-5 profile-name">
+                    <a href="{% url 'user-details'%}">{{ user.username }}</a> <br>
+
+                    <div class="suggestions-for-you">
+                        <h1 class="text-muted">Suggestions For You</h1>
+                        <a href="">See all</a>
+                    </div>
                 </div>
             </div>
         </div>
