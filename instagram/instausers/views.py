@@ -150,6 +150,22 @@ class ProfileList(ListView):
 class ProfileDetail(DetailView):
     model = Profile
     template_name = 'instausers/profile-detail.html'
+
+    def get_object(self):
+        pk= self.kwargs.get('pk')
+        profile_view = Profile.objects.get(pk=pk)
+        return profile_view
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profile_view = self.get_object()
+        my_profile = Profile.objects.get(user=self.request.user)
+        if profile_view.user in my_profile.followers.all():
+            follow = True
+        else:
+            follow = False
+        context["follow"] = follow
+        return context
     
 
     
