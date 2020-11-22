@@ -19,6 +19,13 @@
 
                     <div class="suggestions-for-you">
                         <h1 class="text-muted">Suggestions For You</h1>
+                        {% for profile in profiles %}
+                          {{ profile }}
+
+                          <a href="{% url 'instausers:profile-detail' profile.pk%}">
+                              <button class="btn btn-btn primary">View profile</button>
+                          </a>
+                        {% endfor %}
                         <a href="">See all</a>
                     </div>
                 </div>

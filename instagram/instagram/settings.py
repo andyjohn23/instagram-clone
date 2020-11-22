@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instausers.apps.InstausersConfig',
+    'instaposts.apps.InstapostsConfig',
     'crispy_forms',
     'bootstrap4',
 ]
@@ -70,7 +71,6 @@ TEMPLATES = [
         },
     },
 ]
-
 AUTH_USER_MODEL = 'instausers.UserAccount'
 
 WSGI_APPLICATION = 'instagram.wsgi.application'
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 

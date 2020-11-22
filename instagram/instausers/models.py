@@ -36,8 +36,6 @@ class ManagerAccount(BaseUserManager):
 class UserAccount(AbstractBaseUser):
     email = models.EmailField(verbose_name='email', max_length=70, unique=True)
     username = models.CharField(max_length=70, unique=True)
-    join_date = models.DateTimeField(verbose_name='join date', auto_now_add=True)
-    last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -59,8 +57,20 @@ class UserAccount(AbstractBaseUser):
 class Profile(models.Model):
     user = models.OneToOneField(UserAccount, on_delete=models.CASCADE)
     image = models.ImageField(default='default-avatar.jpg', upload_to='profile_pics')
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
+    followers = models.ManyToManyField(UserAccount, blank=True, related_name='followers')
+
+    def profile_instaposts(self):
+        return self.post_set.all()
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return str(self.user.username)
+
+    class Meta:
+        ordering = ('-date_joined',)
+
+
+
 
     

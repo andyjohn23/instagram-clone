@@ -3,7 +3,12 @@ from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterUserForm, AuthenticationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib import messages
+from django.contrib.auth.views import PasswordChangeView,PasswordResetDoneView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView
+from .models import Profile,UserAccount
 
 # Create your views here.
 
@@ -102,13 +107,6 @@ def get_redirect_if_exists(request):
 
     return redirect
 
-
-@login_required(login_url='login')
-def profile(request):
-
-    return render(request, 'instausers/profile.html')
-
-
 @login_required(login_url='login')
 def profile_edit(request):
 
@@ -134,8 +132,26 @@ def profile_edit(request):
 
     return render(request, 'instausers/profile_edit.html', context)
 
-
 @login_required(login_url='login')
 def user_details(request):
 
     return render(request, 'instausers/instauser-details.html')
+
+@method_decorator(login_required, name='dispatch')
+class ProfileList(ListView):
+    model = Profile
+    template_name = 'instausers/profile.html'
+    context_object_name = 'profiles'
+
+    def get_queryset(self):
+        return Profile.objects.all().exclude(user=self.request.user)
+
+@method_decorator(login_required, name='dispatch')
+class ProfileDetail(DetailView):
+    model = Profile
+    template_name = 'instausers/profile-detail.html'
+    
+
+    
+
+

@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
 
+app_name = "instausers"
+
 urlpatterns = [
     path('', views.index, name='index'),
-    path('user-details/', views.user_details, name='user-details'),
-    path('edit/', views.profile_edit, name='profile-edit')
+    path('<pk>/', views.ProfileDetail.as_view(), name='profile-detail'),
 ]
