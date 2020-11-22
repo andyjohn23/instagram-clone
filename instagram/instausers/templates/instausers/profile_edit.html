@@ -1,32 +1,30 @@
 {% extends "instausers/base2.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-
-<div class="container registration-form selectDisable">
-    <img src="/static/images/Instagram-word-Logo.png" alt="logo" class="center">
-
-    <form method="POST" class="form">
+<div class="container content-section user-edit-form">
+    {% if messages %}
+       {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+       {% endfor %}
+    {% endif %}
+    <div class="media">
+        <img src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h1 class="account-heading">{{ user.username }}</h1>
+        </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Edit Profile</legend>
+            {{ u_form | crispy }}
+            {{ p_form | crispy }}
+        </fieldset>
         <div class="form-group">
-            <input type="email" class="form-control" name="email" id="email" autocomplete="off" placeholder=" "
-                required />
-            <label for="email" class="label-email">
-                <span class="content-email">Email</span>
-            </label>
+            <button class="btn" type="submit">Update</button>
         </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" name="password" id="password" autocomplete="off" placeholder=" "
-                required />
-            <label for="login-password" class="label-loginpassword">
-                <span class="content-loginpassword">Password</span>
-            </label>
-        </div>
-
     </form>
 </div>
-
-
-
-{% endblock %}
+{% endblock content %}

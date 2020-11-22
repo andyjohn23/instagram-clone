@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import login,logout,authenticate
-from .forms import RegisterUserForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+from .forms import RegisterUserForm, AuthenticationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
+
 
 def index(request):
 
@@ -32,6 +34,7 @@ def index(request):
             context['login_form'] = form
 
     return render(request, 'instausers/index.html', context)
+
 
 def register(request, *arg, **kwargs):
     user = request.user
@@ -90,6 +93,7 @@ def login_user(request, *args, **kwargs):
 
     return render(request, 'instausers/login.html', context)
 
+
 def get_redirect_if_exists(request):
     redirect = None
     if request.GET:
@@ -103,6 +107,33 @@ def get_redirect_if_exists(request):
 def profile(request):
 
     return render(request, 'instausers/profile.html')
+
+
+@login_required(login_url='login')
+def profile_edit(request):
+
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Profile updated successfully')
+            return redirect('profile-edit')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'instausers/profile_edit.html', context)
+
 
 @login_required(login_url='login')
 def user_details(request):

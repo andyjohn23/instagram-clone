@@ -220,4 +220,84 @@ body {
   text-decoration: none;
   color: black;
 }
-
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.user-edit-form {
+  margin-top: 6rem;
+  width: 50%;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
+  position: relative;
+}
+.user-edit-form img {
+  margin-top: 2rem;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+  margin-bottom: 1rem;
+}
+.user-edit-form h1{
+  font-size: 21px;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-left: 2rem;
+  margin-top: 4rem;
+}
+.user-edit-form button{
+  width: 120px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  background-color:#0e93cd;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+.user-edit-form button:hover{
+  color: white;
+}
+.user-edit-form legend{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.user-edit-form .asteriskField{
+  color: red;
+}
+.user-edit-form label{
+  font-size: 18px;
+  font-weight: bold;
+}
+.user-edit-form form input[type="text"]{
+  margin-bottom: 1rem;
+  width: 400px;
+  height: 40px;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+  padding-left: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: grey;
+}
+.user-edit-form form input[type="email"]{
+  margin-bottom: 1rem;
+  width: 400px;
+  height: 40px;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+  padding-left: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: grey;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
