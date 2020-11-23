@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterUserForm, AuthenticationForm, UserUpdateForm, ProfileUpdateForm
@@ -171,6 +171,7 @@ class ProfileDetail(DetailView):
             follow = False
         context["follow"] = follow
         return context
+        
     
 def unfollow_follow(request):
     if request.method == 'POST':

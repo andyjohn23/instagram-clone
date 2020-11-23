@@ -4,7 +4,6 @@
 
 <div class="container-fluid">
     <div class="container user-content">
-
         <div class="user-avatar" id="profile-image">
             <img src="{{ user.profile.image.url }}" alt="profile-photo">
         </div>
@@ -19,7 +18,7 @@
             <div class="user-extra">
 
                 <p>
-                    <span>{{ user.author.objects.all.count }}</span>&nbsp;posts
+                    <span>0</span>&nbsp;posts
                 </p>
 
                 <p>
@@ -31,6 +30,8 @@
                 </p>
             </div>
         </div>
+
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -55,10 +56,16 @@
         </div>
     </div>
 
+    <hr style="width: 65rem; margin-top: 3rem;">
+
+    <div class="user-posts">
+        <h1><i class="fa fa-table" aria-hidden="true"></i>&nbsp;POSTS</h1>
+    </div>
+
     <div class="container gallery">
         {% for post in posts %}
-        <div class="box img-wrapper" data-toggle="modal" data-target="#image{{postid}}">
-            <img src="{{post.image.url}}" alt="photo" id="myImg">
+        <div class="box img-wrapper" data-toggle="modal" data-target="#image{{post.id}}">
+            <img src="{{ post.image.url }}" alt="photo" id="myImg">
             <a href="{{ post.image.url }}" download="{{ post.id }}">
                 <div class="add-btn" title="Download photo">
                     <button><i class="fa fa-download" aria-hidden="true"></i></button>

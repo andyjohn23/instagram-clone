@@ -7,7 +7,7 @@ from django.urls import reverse
 # Create your models here.
 
 class InstaPosts(models.Model):
-    author = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     image = CloudinaryField('image')
     body = models.TextField()
     likes = models.ManyToManyField(UserAccount, default=None, blank=True, related_name='likes')

@@ -45,6 +45,9 @@ class UserAccount(AbstractBaseUser):
     REQUIRED_FIELDS = ['username']
     objects = ManagerAccount()
 
+    def profile_instaposts(self):
+        return self.instaposts_set.all.filter(user=self.request.user)
+
     def __str__(self):
         return self.username
 
@@ -60,7 +63,6 @@ class Profile(models.Model):
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     followers = models.ManyToManyField(UserAccount, blank=True, related_name='followers')
-
 
     def profile_instaposts(self):
         return self.instaposts_set.all()
