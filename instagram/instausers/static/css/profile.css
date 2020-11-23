@@ -331,6 +331,7 @@ body {
   float: right;
   font-size: 14px;
   font-weight: bold;
-  margin-top: -6.9rem;
-  margin-right: 2rem;
+  margin-top: -7rem;
+  margin-left: 16rem;
+  position: fixed;
 }

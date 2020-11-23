@@ -65,6 +65,12 @@ class Profile(models.Model):
     def profile_instaposts(self):
         return self.instaposts_set.all()
 
+    def count_followers(self):
+        return self.followers.count()
+    
+    def count_following(self):
+        return Profile.objects.filter(followers=self).count()
+
     def __str__(self):
         return str(self.user.username)
 
