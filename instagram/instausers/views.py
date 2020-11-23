@@ -167,7 +167,18 @@ class ProfileDetail(DetailView):
         context["follow"] = follow
         return context
     
+def unfollow_follow(request):
+    if request.method=='POST':
+        my_profile=Profile.objects.get(user=request.user)
+        pk = request.POST.get('profile_pk')
+        obj = Profile.objects.get(pk=pk)
 
+        if obj.user in my_profile.followers.all():
+            my_profile.followers.remove(obj.user)
+        else:
+            my_profile.followers.add(obj.user)
+        return redirect(request.META.get('HTTP_REFERER'))
+    return redirect('instausers:profile')
     
 
 

@@ -20,13 +20,19 @@
                     <div class="suggestions-for-you">
                         <h1 class="text-muted">Suggestions For You</h1>
                         {% for profile in profiles %}
-                          {{ profile }}
 
-                          <a href="{% url 'instausers:profile-detail' profile.pk%}">
-                              <button class="btn btn-btn primary">View profile</button>
-                          </a>
+                        <div class="profile-users-loop">
+                            <img src="{{ profile.image.url }}" alt="profile-photo">
+                            {{ profile }}
+                        </div>
+
+                        <a href="{% url 'instausers:profile-detail' profile.pk%}" style="margin-top: -2.3rem;">
+                            <button class="btn" style="margin-left: -2rem; font-size: 14px; color: #0e93cd;">View profile</button>
+                        </a>
+
                         {% endfor %}
-                        <a href="">See all</a>
+                        <a href="" class="see-all">See all</a>
+
                     </div>
                 </div>
             </div>

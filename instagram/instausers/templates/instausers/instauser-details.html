@@ -4,16 +4,15 @@
 
 <div class="container user-content">
 
-    <form method="POST" enctype="multipart/form-data">
-        <input id="profile-image-upload" class="hidden" type="file" style="display: none;">
-        <div class="user-avatar" id="profile-image">
-            <img src="{{ user.profile.image.url }}" alt="profile-photo">
-        </div>
-    </form>
+    <div class="user-avatar" id="profile-image">
+        <img src="{{ user.profile.image.url }}" alt="profile-photo">
+    </div>
+
     <div class="user-info">
         <p class="user-name">{{user.username}}&nbsp;&nbsp;
             <a href="{% url 'profile-edit'%}" class="btn  button">Edit Profile</a>
-            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cog"
+                    aria-hidden="true"></i></a>
         </p>
 
         <div class="user-extra">

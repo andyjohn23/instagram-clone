@@ -4,17 +4,21 @@
 
 <div class="container user-content">
 
-    <form method="POST" enctype="multipart/form-data">
-        <input id="profile-image-upload" class="hidden" type="file" style="display: none;">
-        <div class="user-avatar" id="profile-image">
-            <img src="{{ object.user.profile.image.url }}" alt="profile-photo">
-        </div>
-    </form>
+    <div class="user-avatar" id="profile-image" style="margin-left: 18rem;">
+        <img src="{{ object.user.profile.image.url }}" alt="profile-photo">
+    </div>
+
     <div class="user-info">
         <p class="user-name">{{ object.user.username }}&nbsp;&nbsp;
-            <a href="{% url 'profile-edit'%}" class="btn  button">{{ follow }}</a>
-            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cog" aria-hidden="true"></i></a>
-        </p>
+            {% if follow %}
+        <form method="POST" action="">
+            <input type="hidden" name="profile_pk" value="{{ object.pk }}">
+            <button type="submit">{{ following }}</button>
+        </form>
+        {% else %}
+        <input type="hidden" name="profile_pk" value="{{ object.pk }}">
+        <button type="submit">Follow</button>
+        {% endif %}
 
         <div class="user-extra">
 
@@ -30,6 +34,14 @@
                 <a href=""><span>0</span>&nbsp;following</a>
             </p>
         </div>
+    </div>
+
+    <div class="container posts">
+        {% for post in object.profile_instaposts %}
+        <div class="post-body">
+            {{ post.body }}
+        </div>
+        {% endfor %}
     </div>
 
     <!-- Modal -->

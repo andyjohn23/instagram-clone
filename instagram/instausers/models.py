@@ -62,7 +62,7 @@ class Profile(models.Model):
     followers = models.ManyToManyField(UserAccount, blank=True, related_name='followers')
 
     def profile_instaposts(self):
-        return self.post_set.all()
+        return self.instaposts_set.all()
 
     def __str__(self):
         return str(self.user.username)

@@ -169,7 +169,6 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(64, 64, 64, 0.3);
   margin-left: -17rem;
-  cursor: pointer;
 }
 .user-info {
   line-height: 35px;
@@ -191,6 +190,17 @@ body {
   font-family: sans-serif;
   width: 100px;
   background-color: rgba(224, 224, 224, 0.2);
+}
+.user-info button{
+  outline: none !important;
+  border: 1px solid rgba(64, 64, 64, 0.3);
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  width: 100px;
+  color: white;
+  background-color:#0e93cd;
 }
 .user-info i {
   font-size: 30px;
@@ -300,4 +310,24 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+.profile-users-loop{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.profile-users-loop img{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+}
+.suggestions-for-you .see-all {
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: -6.9rem;
+  margin-right: 2rem;
 }

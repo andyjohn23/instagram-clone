@@ -24,6 +24,7 @@ urlpatterns = [
     path('register/', instausers_views.register, name='register'),
     path('login/', instausers_views.login_user, name='login'),
     path('logout/', instausers_views.logout_user, name='logout'),
+    path('', instausers_views.index, name='index'),
     path('user-details/', instausers_views.user_details, name='user-details'),
     path('edit/', instausers_views.profile_edit, name='profile-edit'),
     path('passwordchange/', instausers_views.profile_edit, name='profile-change'),
