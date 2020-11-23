@@ -61,6 +61,7 @@ class Profile(models.Model):
     last_login = models.DateTimeField(auto_now=True)
     followers = models.ManyToManyField(UserAccount, blank=True, related_name='followers')
 
+
     def profile_instaposts(self):
         return self.instaposts_set.all()
 

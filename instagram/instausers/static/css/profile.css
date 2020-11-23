@@ -191,7 +191,7 @@ body {
   width: 100px;
   background-color: rgba(224, 224, 224, 0.2);
 }
-.user-info button{
+.user-info form button{
   outline: none !important;
   border: 1px solid rgba(64, 64, 64, 0.3);
   border-radius: 4px;
@@ -201,6 +201,9 @@ body {
   width: 100px;
   color: white;
   background-color:#0e93cd;
+  margin-top: -3.2rem;
+  margin-left: 5rem;
+  position:absolute;
 }
 .user-info i {
   font-size: 30px;

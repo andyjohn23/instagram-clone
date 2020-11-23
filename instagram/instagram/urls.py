@@ -31,6 +31,7 @@ urlpatterns = [
     path('passwordchange/done/', instausers_views.profile_edit, name='profile-reset'),
     path('profile/', instausers_views.ProfileList.as_view(), name='profile'),
     path('', include('instausers.urls')),
+    path('insta/posts/', include('instaposts.urls')),
 ]
 
 if settings.DEBUG:

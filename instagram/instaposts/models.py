@@ -15,4 +15,3 @@ class InstaPosts(models.Model):
     class Meta:
         ordering = ('-created',)
 
-
