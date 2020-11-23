@@ -44,6 +44,7 @@
     <div class="container posts">
         {% for post in object.profile_instaposts %}
         <div class="post-body">
+            <img src="{{ post.image.url }}">
             {{ post.body }}
         </div>
         {% endfor %}

@@ -9,6 +9,8 @@ from django.contrib.auth.views import PasswordChangeView,PasswordResetDoneView
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from .models import Profile,UserAccount
+from instaposts.models import InstaPosts
+from django.db.models import Count    
 
 # Create your views here.
 
@@ -135,7 +137,11 @@ def profile_edit(request):
 @login_required(login_url='login')
 def user_details(request):
 
-    return render(request, 'instausers/instauser-details.html')
+    context = {
+        'posts':InstaPosts.objects.all()
+    }
+    user_posts = UserAccount.objects.annotate(total_posts = Count('post'))
+    return render(request, 'instausers/instauser-details.html', {'user_post':user_posts}, context)
 
 @method_decorator(login_required, name='dispatch')
 class ProfileList(ListView):

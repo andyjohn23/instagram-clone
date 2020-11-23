@@ -1,0 +1,24 @@
+{% extends "instausers/base2.html" %}
+
+{% block content %}
+
+{% for test in qs %}
+
+<img src="{{test.image.url}}">
+<p>{{ test.body }}</p>
+<form action="{% url 'instaposts:liked-post'%}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="post_id" value="{{ test.id }}">
+    {% if user not in test.likes.all %}
+      <button type="submit">like</button>
+     
+    {% else %}
+
+    <button type="submit">like</button>
+
+    {% endif %}
+</form>
+<strong>{{ test.likes.all.count }} likes</strong>
+{% endfor %}
+
+{% endblock %}
