@@ -11,13 +11,17 @@
     <div class="user-info">
         <p class="user-name">{{ object.user.username }}&nbsp;&nbsp;
             {% if follow %}
-        <form method="POST" action="">
+        <form action="{% url 'instausers:follow-profile'%}" method="POST">
+            {% csrf_token %}
             <input type="hidden" name="profile_pk" value="{{ object.pk }}">
             <button type="submit">{{ following }}</button>
         </form>
         {% else %}
-        <input type="hidden" name="profile_pk" value="{{ object.pk }}">
-        <button type="submit">Follow</button>
+        <form action="{% url 'instausers:follow-profile'%}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="profile_pk" value="{{ object.pk }}">
+            <button type="submit">Follow</button>
+        </form>
         {% endif %}
 
         <div class="user-extra">

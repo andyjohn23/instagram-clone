@@ -168,7 +168,7 @@ class ProfileDetail(DetailView):
         return context
     
 def unfollow_follow(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         my_profile=Profile.objects.get(user=request.user)
         pk = request.POST.get('profile_pk')
         obj = Profile.objects.get(pk=pk)
