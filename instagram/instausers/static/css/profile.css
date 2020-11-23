@@ -191,7 +191,7 @@ body {
   width: 100px;
   background-color: rgba(224, 224, 224, 0.2);
 }
-.user-info form button{
+.user-info form button {
   outline: none !important;
   border: 1px solid rgba(64, 64, 64, 0.3);
   border-radius: 4px;
@@ -200,10 +200,10 @@ body {
   font-family: sans-serif;
   width: 100px;
   color: white;
-  background-color:#0e93cd;
+  background-color: #0e93cd;
   margin-top: -3.2rem;
   margin-left: 5rem;
-  position:absolute;
+  position: absolute;
 }
 .user-info i {
   font-size: 30px;
@@ -256,39 +256,39 @@ body {
   border: 1px solid rgba(64, 64, 64, 0.5);
   margin-bottom: 1rem;
 }
-.user-edit-form h1{
+.user-edit-form h1 {
   font-size: 21px;
   font-weight: bold;
   font-family: sans-serif;
   margin-left: 2rem;
   margin-top: 4rem;
 }
-.user-edit-form button{
+.user-edit-form button {
   width: 120px;
   color: white;
   font-weight: bold;
   font-size: 15px;
-  background-color:#0e93cd;
+  background-color: #0e93cd;
   outline: none;
   border: none;
   border-radius: 4px;
 }
-.user-edit-form button:hover{
+.user-edit-form button:hover {
   color: white;
 }
-.user-edit-form legend{
+.user-edit-form legend {
   font-size: 22px;
   font-weight: bold;
   font-family: sans-serif;
 }
-.user-edit-form .asteriskField{
+.user-edit-form .asteriskField {
   color: red;
 }
-.user-edit-form label{
+.user-edit-form label {
   font-size: 18px;
   font-weight: bold;
 }
-.user-edit-form form input[type="text"]{
+.user-edit-form form input[type="text"] {
   margin-bottom: 1rem;
   width: 400px;
   height: 40px;
@@ -298,7 +298,7 @@ body {
   border-radius: 5px;
   color: grey;
 }
-.user-edit-form form input[type="email"]{
+.user-edit-form form input[type="email"] {
   margin-bottom: 1rem;
   width: 400px;
   height: 40px;
@@ -314,13 +314,13 @@ body {
   margin-right: auto;
   width: 50%;
 }
-.profile-users-loop{
+.profile-users-loop {
   display: flex;
   flex-direction: row;
   gap: 10px;
   margin-top: 1rem;
 }
-.profile-users-loop img{
+.profile-users-loop img {
   width: 30px;
   height: 30px;
   object-fit: contain;
@@ -334,4 +334,43 @@ body {
   margin-top: -7rem;
   margin-left: 16rem;
   position: fixed;
+}
+.gallery {
+  margin-top: 3rem;
+  width: 100vw;
+  height: 200px;
+  columns: 3;
+  column-gap: 10px;
+}
+.gallery .box img {
+  width: 600px;
+  height: 200px;
+  max-width: 100%;
+  object-fit: cover;
+}
+.gallery .box {
+  width: 100%;
+  margin: 0 0 10px;
+  padding-right: 12px;
+  overflow: hidden;
+  break-inside: avoid;
+}
+.gallery{
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 10px;
+  margin-top: 5rem;
+}
+.gallery .box{
+  width: 300px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(202, 217, 228, 0.3);
+}
+.gallery .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

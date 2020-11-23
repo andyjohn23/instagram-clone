@@ -140,8 +140,7 @@ def user_details(request):
     context = {
         'posts':InstaPosts.objects.all()
     }
-    user_posts = UserAccount.objects.annotate(total_posts = Count('post'))
-    return render(request, 'instausers/instauser-details.html', {'user_post':user_posts}, context)
+    return render(request, 'instausers/instauser-details.html', context)
 
 @method_decorator(login_required, name='dispatch')
 class ProfileList(ListView):
