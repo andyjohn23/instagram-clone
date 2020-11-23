@@ -2,36 +2,60 @@
 
 {% block content %}
 
-<div class="container user-content">
+<div class="container-fluid">
+    <div class="container user-content">
 
-    <div class="user-avatar" id="profile-image">
-        <img src="{{ user.profile.image.url }}" alt="profile-photo">
-    </div>
+        <div class="user-avatar" id="profile-image">
+            <img src="{{ user.profile.image.url }}" alt="profile-photo">
+        </div>
 
-    <div class="user-info">
-        <p class="user-name">{{user.username}}&nbsp;&nbsp;
-            <a href="{% url 'profile-edit'%}" class="btn  button">Edit Profile</a>
-            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cog"
-                    aria-hidden="true"></i></a>
-        </p>
-
-        <div class="user-extra">
-
-            <p>
-                <span>{{ user.author.objects.all.count }}</span>&nbsp;posts
+        <div class="user-info">
+            <p class="user-name">{{user.username}}&nbsp;&nbsp;
+                <a href="{% url 'profile-edit'%}" class="btn  button">Edit Profile</a>
+                <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cog"
+                        aria-hidden="true"></i></a>
             </p>
 
-            <p>
-                <a href=""><span>0</span>&nbsp;followers</a>
-            </p>
+            <div class="user-extra">
 
-            <p>
-                <a href=""><span>{{ user.profile.followers.count }}</span>&nbsp;following</a>
-            </p>
+                <p>
+                    <span>{{ user.author.objects.all.count }}</span>&nbsp;posts
+                </p>
+
+                <p>
+                    <a href=""><span>0</span>&nbsp;followers</a>
+                </p>
+
+                <p>
+                    <a href=""><span>{{ user.profile.followers.count }}</span>&nbsp;following</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container-fluid gallery">
+    <div class="container gallery">
         {% for post in posts %}
         <div class="box img-wrapper" data-toggle="modal" data-target="#image{{postid}}">
             <img src="{{post.image.url}}" alt="photo" id="myImg">
@@ -44,28 +68,5 @@
         {% endfor %}
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endblock %}
 </div>
-
-{% endblock %}
-
