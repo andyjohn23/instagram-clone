@@ -4,7 +4,7 @@
 [Andrew John](https://github.com/andyjohn23)
 
 ## DESCRIPTION 
-This is aN instagram clone built using django.
+This is a instagram clone built using django.
 
 ## LIVE SITE
 ()
