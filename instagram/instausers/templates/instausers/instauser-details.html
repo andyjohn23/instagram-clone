@@ -18,7 +18,7 @@
             <div class="user-extra">
 
                 <p>
-                    <span>{{ num_post }}</span>&nbsp;posts
+                    <span>0</span>&nbsp;posts
                 </p>
 
                 <p>
@@ -76,7 +76,10 @@
         {% endfor %}
         {% else %}
 
-        <h1>No posts</h1>
+        <div class="container no-posts">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <p>No Posts Yet</p>
+        </div>
         {% endif %}
     </div>
 

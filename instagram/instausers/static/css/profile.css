@@ -379,3 +379,14 @@ body {
   font-size: 15px;
   text-align: center;
 }
+.no-posts{
+  text-align: center;
+  margin-top: 2rem;
+  position: absolute;
+}
+.no-posts i{
+  font-size: 4rem;
+}
+.no-posts p{
+  font-size: 2rem;
+}
