@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -94,6 +95,7 @@ TEMPLATES = [
         },
     },
 ]
+
 AUTH_USER_MODEL = 'instausers.UserAccount'
 
 WSGI_APPLICATION = 'instagram.wsgi.application'
