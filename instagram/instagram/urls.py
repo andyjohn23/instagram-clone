@@ -32,6 +32,7 @@ urlpatterns = [
     path('passwordchange/', instausers_views.profile_edit, name='profile-change'),
     path('passwordchange/done/', instausers_views.profile_edit, name='profile-reset'),
     path('profile/', instausers_views.ProfileList.as_view(), name='profile'),
+    path('profile/', instausers_views.followers_post, name='profile'),
     path('like/post/', instaposts_views.like_post,  name='liked-post'),
     path('', include('instausers.urls')),
     path('', include('instaposts.urls')),

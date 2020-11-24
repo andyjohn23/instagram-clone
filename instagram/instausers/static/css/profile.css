@@ -364,13 +364,13 @@ body {
 #myImg:hover {
   opacity: 0.8;
 }
-.img-wrapper i {
+.img-wrapper i{
   position: absolute;
   margin-left: 20px;
   top: 15px;
   display: none;
 }
-.img-wrapper:hover i {
+.img-wrapper:hover i{
   display: block;
 }
 .img-wrapper {
@@ -401,9 +401,13 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
 }
+.overlay-heart p{
+  font-size: 15px;
+  margin-left: 2rem;
+}
 .modal-dialog {
   max-width: 100vw;
-  max-height: 100vh !important;
+  height: 50vh !important;
 }
 .modal-body img {
   width: 50vw;
@@ -411,6 +415,7 @@ body {
   object-fit: cover;
   margin: 0;
   padding: 0;
+  border: 1px solid rgba(64, 64, 64, 0.5);
 }
 .modal-content {
   max-height: 100vh;
@@ -480,4 +485,100 @@ body {
 }
 .hearty {
   color: red;
+}
+.like-form{
+  margin-top: -4rem;
+  margin-right: 30rem;
+  float: right;
+}
+.Instagram-card{
+	background: #ffffff;
+	border-radius: 3px;
+	max-width: 55vw;
+  margin-top: 10px;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+}
+.Instagram-card-image img{
+  margin-top: 1rem;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid rgba(64, 64, 64, 0.2);
+}
+.Instagram-card-time{
+  display: flex;
+  flex-direction: row;
+}
+.Instagram-card-header{
+	padding: 20px;
+	height: 40px;
+}
+.Instagram-card-header p{
+  float: right;
+  margin-top: 1rem;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.Instagram-card-user-image{
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.Instagram-card-user-name{
+	margin-left:20px;
+	font-weight:bold;
+  color: #262626;
+}
+
+.Instagram-card-content{
+  padding: 20px;
+}
+
+.Likes{
+  font-weight: bold;
+}
+
+.Instagram-card-content-user{
+  font-weight: bold;
+  color: #262626;
+}
+
+.hashtag{
+  color: #003569;
+}
+
+.comments{
+  color:#999;
+}
+
+.user-comment{
+  color: #003569;
+}
+
+.Instagram-card-footer{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+hr{
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+ 
+}
+.footer-action-icons{
+  font-size: 16px;
+  color: #ccc;
+}
+
+.comments-input{
+  border: none;
+  margin-left: 10px;
+  width: 100%;
 }

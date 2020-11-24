@@ -4,9 +4,48 @@
 
 <div class="container profile-section">
     <div class="row">
-        <div class="col-md-6" style="margin-top: 5rem;">
+        <div class="col-md-7" style="margin-top: -2rem; margin-left: -6rem;">
             {% for post in posts %}
-            <h1>{{ post.body }}</h1>
+            <div class="Instagram-card">
+                <div class="Instagram-card-header">
+                    <img src="{{post.author.profile.image.url}}" class="Instagram-card-user-image">
+                    <a class="Instagram-card-user-name" href="">{{post.author}}</a>
+                    <p>{{post.created}}</p>
+                </div>
+
+                <div class="Instagram-card-image">
+                    <img src="{{post.image.url}}">
+                </div>
+
+                <div class="Instagram-card-content">
+                    <p class="Likes">
+                    <form action="{% url 'instaposts:liked-post'%}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+
+                        {% if user not in post.likes.all %}
+
+                        <button type="submit">like</button>
+
+                        {% else %}
+
+                        <button type="submit">unlike</button>
+
+                        {% endif %}
+                    </form>
+                    <strong>{{ post.likes.all.count }} likes</strong>
+                    </p>
+                    <p>
+                        {{ post.body }}
+                    </p>
+                    <hr>
+                </div>
+
+                <div class="Instagram-card-footer">
+                    <input class="comments-input" type="text" placeholder="Add comment.."  style="border: none;">
+                </div>
+
+            </div>
             {% endfor %}
         </div>
 
@@ -29,7 +68,8 @@
                         </div>
 
                         <a href="{% url 'instausers:profile-detail' profile.pk%}" style="margin-top: -2.3rem;">
-                            <button class="btn" style="margin-left: -2rem; font-size: 14px; color: #0e93cd;">View profile</button>
+                            <button class="btn" style="margin-left: -2rem; font-size: 14px; color: #0e93cd;">View
+                                profile</button>
                         </a>
                         {% endfor %}
                     </div>

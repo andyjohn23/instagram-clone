@@ -7,4 +7,5 @@ urlpatterns = [
     path('<pk>/', views.ProfileDetail.as_view(), name='profile-detail'),
     path('profile/', views.ProfileList.as_view(), name='profile'),
     path('profile/follow/', views.unfollow_follow, name='follow-profile'),
+    path('profile/', views.followers_post, name='profile'),
 ]

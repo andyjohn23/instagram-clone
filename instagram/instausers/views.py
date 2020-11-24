@@ -157,27 +157,16 @@ class ProfileList(ListView):
     template_name = 'instausers/profile.html'
     context_object_name = 'profiles'
 
+
     def get_queryset(self):
         return Profile.objects.all().exclude(user=self.request.user)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = InstaPosts.objects.all()
+        return context
 
-    def followers_post(self, request):
-        profile = Profile.objects.get(user=self.request.user)
-        users = [user for user in profile.followers.all()]
-
-        posts = []
-        qs = None
-
-        for follower in users:
-            p = Profile.objects.get(user=follower)
-            p_posts = p.instaposts_set.all()
-            posts.append(p_posts)
-
-        my_post = profile.profile_instaposts
-        posts.append(my_post)
-
-        if len(posts) > 0:
-            qs = sorted(chain(*posts), reverse=True, key=lambda obj: obj.created)
-        return render(request, 'instausers/profile.html', {'posts': posts})
+    
 
 
 @method_decorator(login_required, name='dispatch')

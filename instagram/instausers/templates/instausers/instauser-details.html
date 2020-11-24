@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
     <div class="container user-content">
+
         <div class="user-avatar" id="profile-image">
             <img src="{{ user.profile.image.url }}" alt="profile-photo">
         </div>
@@ -67,15 +68,12 @@
         {% for post in posts %}
         <div class="box img-wrapper" data-toggle="modal" data-target="#image{{post.id}}">
             <img src="{{ post.image.url }}" alt="photo" id="myImg">
-            <div class="overlay-heart">
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-            </div>
         </div>
         {% endfor %}
         {% else %}
 
         <div class="container no-posts">
-            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-camera" aria-hidden="true"></i>
             <p>No Posts Yet</p>
         </div>
         {% endif %}
@@ -99,24 +97,26 @@
                         <img src="{{ post.author.profile.image.url }}">&nbsp;&nbsp;
                         <a class="mr-2" href="">{{ post.author }}</a>
                     </div>
-                    
-                    <form action="{% url 'instaposts:liked-post'%}" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="post_id" value="{{ post.id }}">
 
-                        
+                    <div class="like-form">
+                        <form action="{% url 'instaposts:liked-post'%}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
 
-                        {% if user not in post.likes.all %}
+
+
+                            {% if user not in post.likes.all %}
 
                             <button type="submit">like</button>
-                         
-                        {% else %}
-                    
-                        <button type="submit">unlike</button>
-                    
-                        {% endif %}
-                    </form>
-                    <strong>{{ post.likes.all.count }} likes</strong>
+
+                            {% else %}
+
+                            <button type="submit">unlike</button>
+
+                            {% endif %}
+                        </form>
+                        <strong>{{ post.likes.all.count }} likes</strong>
+                    </div>
                 </div>
                 <div class="modal-footer "></div>
             </div>
