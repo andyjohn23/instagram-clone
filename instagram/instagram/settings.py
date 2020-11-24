@@ -75,7 +75,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-django_heroku.settings(locals())
+
 
 ROOT_URLCONF = 'instagram.urls'
 
@@ -171,3 +171,5 @@ cloudinary.config(
   api_key = "588452196968977", 
   api_secret = "EEZ1-anchdzDZBnGo2aRkPsNcQA" 
 )
+
+django_heroku.settings(locals())
