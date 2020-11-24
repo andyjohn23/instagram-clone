@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import InstaPosts, Like
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, UpdateView, DeleteView
+from itertools import chain
 
 def likes(request):
     qs = InstaPosts.objects.all()
@@ -47,3 +48,22 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.object_relation_assume = self.request.user.profile
         self.object.save()
         return super().form_valid(form)
+
+def followers_post(request):
+    profile = Profile.objects.get(user=request.user)
+    users = [user for user in profile.followers.all()]
+
+    posts = []
+    qs = None
+
+    for follower in users:
+        p = Profile.objects.get(user=follower)
+        p_posts = p.instaposts_set.all()
+        posts.append(p_posts)
+
+    my_post = profile.profile_instaposts
+    posts.append(my_post)
+
+    if len(posts)>0:
+        qs = sorted(chain(*posts), reverse=True, key=lambda obj: obj.created)
+    return render(request, 'instausers/profile.html', {'posts': qs})
