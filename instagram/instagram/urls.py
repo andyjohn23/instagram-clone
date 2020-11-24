@@ -19,6 +19,7 @@ from instausers import views as instausers_views
 from django.conf import settings
 from django.conf.urls.static import static
 from instausers.views import UserPostListView
+from instaposts import views as instaposts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,8 +32,9 @@ urlpatterns = [
     path('passwordchange/', instausers_views.profile_edit, name='profile-change'),
     path('passwordchange/done/', instausers_views.profile_edit, name='profile-reset'),
     path('profile/', instausers_views.ProfileList.as_view(), name='profile'),
+    path('like/post/', instaposts_views.like_post,  name='liked-post'),
     path('', include('instausers.urls')),
-    path('insta/', include('instaposts.urls')),
+    path('', include('instaposts.urls')),
 ]
 
 if settings.DEBUG:

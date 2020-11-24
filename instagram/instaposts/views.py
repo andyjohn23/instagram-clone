@@ -12,7 +12,7 @@ def likes(request):
         'user': user,
     }
 
-    return render(request, 'instaposts/post.html', context)
+    return render(request, 'instausers/instauser-details.html', context)
 
 def like_post(request):
     user = request.user

@@ -96,9 +96,27 @@
                 <div class="modal-body">
                     <img src="{{post.image.url}}" class="img-fluid" alt="photo">
                     <div class="user-modal-avatar">
-                        <img src="{{ post.author.profile.image.url }}">
+                        <img src="{{ post.author.profile.image.url }}">&nbsp;&nbsp;
                         <a class="mr-2" href="">{{ post.author }}</a>
                     </div>
+                    
+                    <form action="{% url 'instaposts:liked-post'%}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+
+                        
+
+                        {% if user not in post.likes.all %}
+
+                            <button type="submit">like</button>
+                         
+                        {% else %}
+                    
+                        <button type="submit">unlike</button>
+                    
+                        {% endif %}
+                    </form>
+                    <strong>{{ post.likes.all.count }} likes</strong>
                 </div>
                 <div class="modal-footer "></div>
             </div>
