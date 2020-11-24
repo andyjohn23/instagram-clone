@@ -134,13 +134,18 @@ def profile_edit(request):
 
     return render(request, 'instausers/profile_edit.html', context)
 
-@login_required(login_url='login')
-def user_details(request):
+@method_decorator(login_required, name='dispatch')
+class UserPostListView(ListView):
+    model = InstaPosts
+    template_name = 'instausers/instauser-details.html'
+    context_object_name = 'posts'
 
-    context = {
-        'posts':InstaPosts.objects.all()
-    }
-    return render(request, 'instausers/instauser-details.html', context)
+    def get_queryset(self):
+        return InstaPosts.objects.filter(author=self.request.user).distinct()
+    
+    def num_post(request):
+        num_post = InstaPosts.objects.filter(author=request.user).count()
+        return render(request, 'instausers/instauser-details.html', {'num_post': num_post})
 
 @method_decorator(login_required, name='dispatch')
 class ProfileList(ListView):
@@ -171,7 +176,7 @@ class ProfileDetail(DetailView):
             follow = False
         context["follow"] = follow
         return context
-        
+
     
 def unfollow_follow(request):
     if request.method == 'POST':

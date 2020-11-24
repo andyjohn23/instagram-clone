@@ -18,6 +18,7 @@ from django.urls import path, include
 from instausers import views as instausers_views
 from django.conf import settings
 from django.conf.urls.static import static
+from instausers.views import UserPostListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,7 @@ urlpatterns = [
     path('login/', instausers_views.login_user, name='login'),
     path('logout/', instausers_views.logout_user, name='logout'),
     path('', instausers_views.index, name='index'),
-    path('user-details/', instausers_views.user_details, name='user-details'),
+    path('user-details/', UserPostListView.as_view(), name="user-details"),
     path('edit/', instausers_views.profile_edit, name='profile-edit'),
     path('passwordchange/', instausers_views.profile_edit, name='profile-change'),
     path('passwordchange/done/', instausers_views.profile_edit, name='profile-reset'),
