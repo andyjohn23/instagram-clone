@@ -7,7 +7,7 @@
 This is a instagram clone built using django.
 
 ## LIVE SITE
-()
+(https://instagram-andy.herokuapp.com/)
 
 
 ## DEVELOPMENT INSTALLATION
